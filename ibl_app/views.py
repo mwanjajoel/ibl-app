@@ -2,11 +2,14 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from oauth2_provider.decorators import protected_resource
 from .models import Greeting
+from rest_framework.decorators import api_view
 
 @csrf_exempt
 @protected_resource()
+@api_view(['POST'])
 def save_greeting(request):
     if request.method == 'POST':
+        print("The request", request.data)
         text = request.POST.get('text')
         if text:
             print(text)
