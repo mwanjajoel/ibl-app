@@ -10,10 +10,15 @@ from rest_framework.decorators import api_view
 def save_greeting(request):
     if request.method == 'POST':
         print("The request", request.data)
-        text = request.POST.get('text')
+        text = request.data.get('text')
         if text:
             print(text)
-            Greeting.objects.create(text=text)
+            try:
+                greeting = Greeting(text=text)
+                greeting.save()
+            except Exception as e:
+                print(e)
+                return JsonResponse({'message': 'Unable to save greeting.'})
             if text.lower() == 'hello':
                 response = request.get(os.getenv("BASE_API") + '?text=goodbye', headers={
                     'Authorization': 'Bearer {}'.format(request.access_token.token),
