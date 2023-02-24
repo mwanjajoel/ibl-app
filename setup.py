@@ -105,11 +105,11 @@ setup(
     version=VERSION,
     description="""IBL test app""",
     long_description=README + '\n\n' + CHANGELOG,
-    author='edX',
-    author_email='oscm@edx.org',
-    url='https://github.com/openedx/ibl-app',
+    author='mwanjajoel',
+    author_email='joelsilverworks@gmail.com',
+    url='https://github.com/mwanjajoel/ibl-app',
     packages=find_packages(
-        include=['ibl_app', 'ibl_app.*'],
+        include=['ibl_app', 'ibl_app.*', 'iblextensions', 'iblextensions.*'],
         exclude=["*tests"],
     ),
 
@@ -117,7 +117,7 @@ setup(
     install_requires=load_requirements('requirements/base.in'),
     python_requires=">=3.8",
     zip_safe=False,
-    keywords='Python edx',
+    keywords='Python edx IBL',
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Framework :: Django',

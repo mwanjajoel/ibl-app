@@ -3,18 +3,13 @@ ibl-app
 
 .. note::
 
-  This README was auto-generated. Maintainer: please review its contents and
-  update all relevant sections. Instructions to you are marked with
-  "PLACEHOLDER" or "TODO". Update or remove those sections, and remove this
-  note when you are done.
-
 |pypi-badge| |ci-badge| |codecov-badge| |doc-badge| |pyversions-badge|
 |license-badge| |status-badge|
 
 Purpose
 *******
 
-IBL test app
+IBL test app. This is a test app for IBL that returns a response depending on its request.
 
 
 
@@ -71,18 +66,6 @@ Every time you develop something in this repo
 
   # Open a PR and ask for review.
 
-Deploying
-=========
-
-TODO: How can a new user go about deploying this component? Is it just a few
-commands? Is there a larger how-to that should be linked here?
-
-PLACEHOLDER: For details on how to deploy this component, see the `deployment how-to`_
-
-.. _deployment how-to: https://docs.openedx.org/projects/ibl-app/how-tos/how-to-deploy-this-component.html
-
-Getting Help
-************
 
 Documentation
 =============
