@@ -16,10 +16,19 @@ class Greeting(models.Model):
     text = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    class Meta:
+        """
+        Meta class for Greeting.
+        """
+
+        ordering = ['-created_at']
+        verbose_name_plural = 'Greetings'
+
 
     def __str__(self):
         """
         Get a string representation of this model instance.
         """
-        # TODO: return a string appropriate for the data fields
-        return '<Greeting, ID: {}>'.format(self.id)
+        return self.text
+    
+
