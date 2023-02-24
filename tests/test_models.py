@@ -8,6 +8,7 @@ class TestGreeting:
     """
     Tests of the Greeting model.
     """
+    
 
     def test_something(self):
         """TODO: Write real test cases."""
