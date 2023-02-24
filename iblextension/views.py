@@ -5,6 +5,9 @@ from .models import Greeting
 from rest_framework.decorators import api_view
 import requests
 import os
+import logging
+
+logger = logging.getLogger(__name__)
 
 @csrf_exempt
 @protected_resource()
@@ -16,12 +19,12 @@ def save_greeting(greeting):
 
         # check to see if there is text in the POST request and save it
         if text:
-            print(text)
+            logger.info("The text", text)
             try:
                 the_greeting = Greeting(text=text)
                 the_greeting.save()
             except Exception as e:
-                print(e)
+                logger.warning("The error: ==>", e)
                 return JsonResponse({'message': 'Unable to save greeting.'})
             
             # check to see if the text is hello
@@ -38,9 +41,8 @@ def save_greeting(greeting):
                     try:
                         access_token = get_access_token(client_id, client_secret, username, password, token_url)
                         
-                        print("The access token", access_token)
                     except Exception as e:
-                        print("The error: ==>", e)
+                        logger.warning("The error: ==>", e)
                         return JsonResponse({'message': 'There was a server error, its not you, its us'})
                     
                     # call the original API with the goodbye parameter as a GET request
@@ -50,9 +52,9 @@ def save_greeting(greeting):
                     }
 
                     response = requests.get(url, headers=headers)
-                    print("The response", response.json())
+                    logger.info("The response", response.json())
                 except Exception as e:
-                    print("The error: ==>", e)
+                    logger.error("The error: ==>", e)
                     return JsonResponse({'message': 'There was a server error, its not you, its us'})
                 return JsonResponse({'message': 'Goodbye!'})
             else:
@@ -61,12 +63,12 @@ def save_greeting(greeting):
             # get the parameter from the GET request and save the greeting
             text = greeting.GET.get('text')
             if text:
-                print(text)
+                logger.warning(text)
                 try:
                     the_greeting = Greeting(text=text)
                     the_greeting.save()
                 except Exception as e:
-                    print(e)
+                    logger.warning("The error: ==>", e)
                     return JsonResponse({'message': 'Unable to save greeting.'})
                 return JsonResponse({'message': 'Greeting saved.'})
             return JsonResponse({'message': 'No greeting provided.'})
@@ -90,10 +92,9 @@ def get_access_token(client_id, client_secret, username, password, token_url):
             headers={'Content-Type': 'application/x-www-form-urlencoded'}
         )
         token = response.json()
-        print("The new token object", token)
         return token['access_token']
     except Exception as e:
-        print(e)
+        logger.warning("The error: ==>", e)
         return JsonResponse({'message': 'Unable to get access token.'})
     
 
