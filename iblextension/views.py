@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 @api_view(['POST', 'GET'])
 def save_greeting(greeting):
     if greeting.method == 'POST' or greeting.method == 'GET':
-        print("The request", greeting.data)
+        logging.info("The request", greeting.data)
         text = greeting.data.get('text')
 
         # check to see if there is text in the POST request and save it
