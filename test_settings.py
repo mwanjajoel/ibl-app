@@ -52,7 +52,8 @@ LOCALE_PATHS = [
 
 ROOT_URLCONF = 'ibl_app.urls'
 
-SECRET_KEY = os.getenv("SECRET_KEY")
+# secret key
+SECRET_KEY = 'u7x!A%D*G-KaPdSgVkYp3s6v9y/B?E(H+MbQeThWmZq4t7w!z%C&F)J@NcRfUjXn'
 
 # STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = '/staticfiles/'
