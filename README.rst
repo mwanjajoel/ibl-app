@@ -33,11 +33,11 @@ One Time Setup
 .. code-block::
 
   # Clone the repository
-  git clone git@github.com:openedx/ibl-app.git
+  git clone https://github.com/mwanjajoel/ibl-app
   cd ibl-app
 
   # Set up a virtualenv using virtualenvwrapper with the same name as the repo and activate it
-  mkvirtualenv -p python3.8 ibl-app
+  virtualenv ibl-app --python=python3.10
 
 
 Every time you develop something in this repo
