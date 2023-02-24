@@ -70,9 +70,9 @@ Every time you develop something in this repo
 Documentation
 =============
 
-PLACEHOLDER: Start by going through `the documentation`_.  If you need more help see below.
+ If you need more help see below.
 
-.. _the documentation: https://docs.openedx.org/projects/ibl-app
+.. _the documentation: https://docs.openedx.org/
 
 (TODO: `Set up documentation <https://openedx.atlassian.net/wiki/spaces/DOC/pages/21627535/Publish+Documentation+on+Read+the+Docs>`_)
 
@@ -90,7 +90,7 @@ For anything non-trivial, the best path is to open an issue in this
 repository with as many details about the issue you are facing as you
 can provide.
 
-https://github.com/openedx/ibl-app/issues
+https://github.com/mwanjajoel/ibl-app/issues
 
 For more information about these options, see the `Getting Help`_ page.
 
@@ -126,14 +126,6 @@ All community members are expected to follow the `Open edX Code of Conduct`_.
 
 .. _Open edX Code of Conduct: https://openedx.org/code-of-conduct/
 
-People
-******
-
-The assigned maintainers for this component and other project details may be
-found in `Backstage`_. Backstage pulls this data from the ``catalog-info.yaml``
-file in this repo.
-
-.. _Backstage: https://open-edx-backstage.herokuapp.com/catalog/default/component/ibl-app
 
 Reporting Security Issues
 *************************
