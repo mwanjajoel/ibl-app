@@ -12,3 +12,6 @@ pip==23.0.1
     # via -r python-template/placeholder_repo_name_0/requirements/pip.in
 setuptools==67.3.2
     # via -r python-template/placeholder_repo_name_0/requirements/pip.in
+djangorestframework
+markdown
+django-filter

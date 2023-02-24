@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.sessions',
     'ibl_app',
+    'rest_framework',
 )
 
 LOCALE_PATHS = [
