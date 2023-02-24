@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'ibl_app',
     'rest_framework',
+    'oauth2_provider',
 )
 
 LOCALE_PATHS = [
