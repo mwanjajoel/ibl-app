@@ -14,6 +14,10 @@ def root(*args):
     """
     return join(abspath(dirname(__file__)), *args)
 
+DEBUG=True
+
+
+
 
 DATABASES = {
     'default': {
@@ -54,8 +58,11 @@ TEMPLATES = [{
     'APP_DIRS': False,
     'OPTIONS': {
         'context_processors': [
-            'django.contrib.auth.context_processors.auth',  # this is required for admin
+            'django.contrib.auth.context_processors.auth', 
+            'django.template.context_processors.request', # this is required for admin
             'django.contrib.messages.context_processors.messages',  # this is required for admin
         ],
     },
 }]
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
