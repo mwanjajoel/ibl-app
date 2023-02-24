@@ -12,10 +12,8 @@ def save_greeting(request):
             print(text)
             Greeting.objects.create(text=text)
             if text.lower() == 'hello':
-                response = request.get('http://localhost:8000/api/v1/greeting?text=goodbye', headers={
+                response = request.get(os.getenv("BASE_API") + '?text=goodbye', headers={
                     'Authorization': 'Bearer {}'.format(request.access_token.token),
-                    'Client-Id': request.access_token.application.client_id,
-                    'Client-Secret': request.access_token.application.client_secret,
                 })
                 return JsonResponse({'message': 'Greeting saved and original greeting called again with "goodbye".'})
             else:
