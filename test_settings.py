@@ -4,9 +4,11 @@ These settings are here to use during tests, because django requires them.
 In a real-world use case, apps in this project are installed into other
 Django applications, so these settings will not be used.
 """
-
+import os
 from os.path import abspath, dirname, join
 
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# BASE_DIR = Path(__file__).resolve().parent.parent
 
 def root(*args):
     """
@@ -34,8 +36,9 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
-    'django.contrib.messages',
     'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
     'ibl_app',
     'rest_framework',
     'oauth2_provider',
@@ -48,6 +51,9 @@ LOCALE_PATHS = [
 ROOT_URLCONF = 'ibl_app.urls'
 
 SECRET_KEY = 'insecure-secret-key'
+
+# STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATIC_URL = '/staticfiles/'
 
 MIDDLEWARE = (
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -68,3 +74,5 @@ TEMPLATES = [{
 }]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL='/admin/login/'
