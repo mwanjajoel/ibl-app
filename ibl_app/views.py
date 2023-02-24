@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from oauth2_provider.decorators import protected_resource
-from models import Greeting
+from .models import Greeting
 
 @csrf_exempt
 @protected_resource()
