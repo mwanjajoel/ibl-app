@@ -48,9 +48,9 @@ ROOT_URLCONF = 'ibl_app.urls'
 SECRET_KEY = 'insecure-secret-key'
 
 MIDDLEWARE = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
 )
 
 TEMPLATES = [{
