@@ -66,16 +66,6 @@ Every time you develop something in this repo
 
   # Open a PR and ask for review.
 
-
-Documentation
-=============
-
- If you need more help see below.
-
-.. _the documentation: https://docs.openedx.org/
-
-(TODO: `Set up documentation <https://openedx.atlassian.net/wiki/spaces/DOC/pages/21627535/Publish+Documentation+on+Read+the+Docs>`_)
-
 More Help
 =========
 
