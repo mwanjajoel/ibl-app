@@ -17,3 +17,4 @@ markdown
 django-filter
 django-oauth-toolkit
 python-dotenv
+requests
