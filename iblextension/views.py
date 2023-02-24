@@ -73,9 +73,7 @@ def save_greeting(greeting):
     else:
         return JsonResponse({'message': 'DANG!! Something really went wrong.'})
 
-@csrf_exempt
-@protected_resource()
-@api_view(['POST'])
+
 # method to get a new access token
 def get_access_token(client_id, client_secret, username, password, token_url):
    
@@ -91,9 +89,9 @@ def get_access_token(client_id, client_secret, username, password, token_url):
             auth=(client_id, client_secret),
             headers={'Content-Type': 'application/x-www-form-urlencoded'}
         )
-        token = JsonResponse(response.json())
+        token = response.json()
         print("The new token object", token)
-        return token.access_token
+        return token['access_token']
     except Exception as e:
         print(e)
         return JsonResponse({'message': 'Unable to get access token.'})
