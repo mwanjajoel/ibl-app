@@ -12,10 +12,10 @@ def save_greeting(request):
             print(text)
             Greeting.objects.create(text=text)
             if text.lower() == 'hello':
-                response = requests.get('http://localhost:8000/api/v1/greeting?text=goodbye', headers={
+                response = request.get('http://localhost:8000/api/v1/greeting?text=goodbye', headers={
                     'Authorization': 'Bearer {}'.format(request.access_token.token),
-                    'Client-Id': 'my-client-id',
-                    'Client-Secret': 'my-client-secret'
+                    'Client-Id': request.access_token.application.client_id,
+                    'Client-Secret': request.access_token.application.client_secret,
                 })
                 return JsonResponse({'message': 'Greeting saved and original greeting called again with "goodbye".'})
             else:

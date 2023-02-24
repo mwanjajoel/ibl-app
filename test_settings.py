@@ -65,7 +65,7 @@ MIDDLEWARE = (
 
 TEMPLATES = [{
     'BACKEND': 'django.template.backends.django.DjangoTemplates',
-    'DIRS': [root('ibl_app', 'templates')],
+    'DIRS': [root('ibl_app', 'templates', 'staticfiles')],
     'APP_DIRS': True,
     'OPTIONS': {
         'context_processors': [
