@@ -26,7 +26,7 @@ ALLOWED_HOSTS = ['*']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'default.db',
+        'NAME': 'mydatabase.db',
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ibl_app',
+    'iblextension',
     'rest_framework',
     'oauth2_provider',
 )
