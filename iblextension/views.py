@@ -84,14 +84,20 @@ def get_access_token(client_id, client_secret, username, password, token_url):
         'username': username,
         'password': password,
     }
-    response = requests.post(
-        token_url,
-        data=request_data,
-        auth=(client_id, client_secret),
-        headers={'Content-Type': 'application/x-www-form-urlencoded'}
-    )
-    token = JsonResponse(response.json())
-    return token.access_token
+    try:
+        response = requests.post(
+            token_url,
+            data=request_data,
+            auth=(client_id, client_secret),
+            headers={'Content-Type': 'application/x-www-form-urlencoded'}
+        )
+        token = JsonResponse(response.json())
+        print("The new token object", token)
+        return token.access_token
+    except Exception as e:
+        print(e)
+        return JsonResponse({'message': 'Unable to get access token.'})
+    
 
 
 
