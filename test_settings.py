@@ -6,6 +6,10 @@ Django applications, so these settings will not be used.
 """
 import os
 from os.path import abspath, dirname, join
+from dotenv import load_dotenv
+
+# Initialise environment variables
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
@@ -16,10 +20,8 @@ def root(*args):
     """
     return join(abspath(dirname(__file__)), *args)
 
-DEBUG=True
-
-
-
+DEBUG=os.getenv("DEBUG")
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
@@ -50,7 +52,7 @@ LOCALE_PATHS = [
 
 ROOT_URLCONF = 'ibl_app.urls'
 
-SECRET_KEY = 'insecure-secret-key'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = '/staticfiles/'
@@ -63,12 +65,14 @@ MIDDLEWARE = (
 
 TEMPLATES = [{
     'BACKEND': 'django.template.backends.django.DjangoTemplates',
-    'APP_DIRS': False,
+    'DIRS': [root('ibl_app', 'templates')],
+    'APP_DIRS': True,
     'OPTIONS': {
         'context_processors': [
-            'django.contrib.auth.context_processors.auth', 
-            'django.template.context_processors.request', # this is required for admin
-            'django.contrib.messages.context_processors.messages',  # this is required for admin
+            'django.template.context_processors.debug',
+            'django.template.context_processors.request',
+            'django.contrib.auth.context_processors.auth',
+            'django.contrib.messages.context_processors.messages',
         ],
     },
 }]
